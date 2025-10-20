@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Our Team - Polytech Sacco</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&family=Open+Sans&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <style>
+        /********** Template CSS **********/
+        :root {
+            --bs-primary: #1E3A8A; /* Navy Blue */
+            --bs-secondary: #007A1E; /* Green */
+            --bs-tertiary: #797E88;
+            --bs-orange: #F5A623;
+            --bs-orange-dark: #E67E00;
+            --bs-beige: #F8EEC7;
+            --bs-beige-light: #FFF8E1;
+        }
+
+        body {
+            background: linear-gradient(to bottom, var(--bs-beige), var(--bs-beige-light));
+        }
+
+        .back-to-top {
+            position: fixed;
+            display: none;
+            right: 30px;
+            bottom: 30px;
+            z-index: 99;
+        }
+
+        .fw-bold {
+            font-weight: 700 !important;
+        }
+
+        .fw-medium {
+            font-weight: 600 !important;
+        }
+
+        .fw-normal {
+            font-weight: 400 !important;
+        }
+
+        /*** Spinner ***/
+        #spinner {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .5s ease-out, visibility 0s linear .5s;
+            z-index: 99999;
+        }
+
+        #spinner.show {
+            transition: opacity .5s ease-out, visibility 0s linear 0s;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /*** Button ***/
+        .btn {
+            transition: .5s;
+        }
+
+        .btn-square {
+            width: 38px;
+            height: 38px;
+        }
+
+        .btn-sm-square {
+            width: 32px;
+            height: 32px;
+        }
+
+        .btn-lg-square {
+            width: 48px;
+            height: 48px;
+        }
+
+        .btn-square,
+        .btn-sm-square,
+        .btn-lg-square {
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: normal;
+        }
+
+        /*** Top Bar ***/
+        .top-bar {
+            height: 90px;
+            padding: 0 90px;
+            background-color: var(--bs-secondary) !important;
+            border-top: 5px solid var(--bs-secondary);
+        }
+
+        .top-bar h6 {
+            letter-spacing: 1px;
+        }
+
+        /*** Nav Bar ***/
+        .nav-bar {
+            padding: 0 90px;
+            transition: .5s;
+        }
+
+        .navbar {
+            background: linear-gradient(to right, var(--bs-orange), var(--bs-orange-dark)) !important;
+        }
+
+        .navbar .navbar-nav .nav-link {
+            margin-right: 30px;
+            padding: 20px 0;
+            color: var(--bs-primary);
+            font-size: 18px;
+            outline: none;
+            font-weight: 600;
+        }
+
+        .navbar .navbar-nav .nav-link:hover,
+        .navbar .navbar-nav .nav-link.active {
+            color: var(--bs-beige-light);
+        }
+
+        .navbar .dropdown-toggle::after {
+            border: none;
+            content: "\f107";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            vertical-align: middle;
+            margin-left: 8px;
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar .navbar-nav .nav-link {
+                margin-right: 0;
+                padding: 10px 0;
+            }
+
+            .navbar .navbar-nav {
+                margin-top: 20px;
+                border-top: 1px solid var(--bs-white);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .navbar .nav-item .dropdown-menu {
+                display: block;
+                border: none;
+                margin-top: 0;
+                top: 150%;
+                opacity: 0;
+                visibility: hidden;
+                transition: .5s;
+            }
+
+            .navbar .nav-item:hover .dropdown-menu {
+                top: 100%;
+                visibility: visible;
+                transition: .5s;
+                opacity: 1;
+            }
+        }
+
+        /*** Page Header ***/
+        .page-header {
+            background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), url(../img/bg.jpg) center center no-repeat;
+            background-size: cover;
+        }
+
+        .page-header .breadcrumb-item+.breadcrumb-item::before {
+            color: var(--bs-tertiary);
+        }
+
+        .page-header .breadcrumb-item,
+        .page-header .breadcrumb-item a {
+            font-size: 18px;
+            color: var(--bs-orange);
+        }
+
+        .page-header .breadcrumb-item.active {
+            color: var(--bs-beige-light);
+        }
+
+        /*** Team ***/
+        .team-item {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .team-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-detail {
+            padding: 30px;
+        }
+
+        .team-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .team-position {
+            color: var(--bs-secondary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .team-experience {
+            font-size: 14px;
+            color: var(--bs-tertiary);
+            margin-bottom: 15px;
+        }
+
+        .team-social {
+            background: var(--bs-primary);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .team-social a {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+
+        .team-social a:hover {
+            background: var(--bs-orange);
+            transform: translateY(-3px);
+        }
+
+        /*** Footer ***/
+        .footer {
+            color: var(--bs-tertiary);
+            background: linear-gradient(rgba(5, 19, 17, .95), rgba(5, 19, 17, .95)), url(../img/bg-footer.jpg) center center no-repeat;
+            background-size: cover;
+        }
+
+        .footer .btn.btn-link {
+            display: block;
+            margin-bottom: 5px;
+            padding: 0;
+            text-align: left;
+            color: var(--bs-tertiary);
+            font-weight: normal;
+            text-transform: capitalize;
+            transition: .3s;
+        }
+
+        .footer .btn.btn-link::before {
+            position: relative;
+            content: "\f105";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-right: 10px;
+        }
+
+        .footer .btn.btn-link:hover {
+            color: var(--bs-light);
+            letter-spacing: 1px;
+            box-shadow: none;
+        }
+
+        .footer .copyright {
+            border-top: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        /* Custom colors for Polytech Sacco */
+        .bg-primary {
+            background-color: var(--bs-primary) !important;
+        }
+
+        .bg-secondary {
+            background-color: var(--bs-secondary) !important;
+        }
+
+        .text-primary {
+            color: var(--bs-primary) !important;
+        }
+
+        .text-secondary {
+            color: var(--bs-secondary) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--bs-primary);
+            border-color: var(--bs-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #152a6e;
+            border-color: #152a6e;
+        }
+
+        .btn-secondary {
+            background-color: var(--bs-secondary);
+            border-color: var(--bs-secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #006118;
+            border-color: #006118;
+        }
+
+        .btn-dark {
+            background-color: var(--bs-orange);
+            border-color: var(--bs-orange);
+            color: var(--bs-primary);
+        }
+
+        .btn-dark:hover {
+            background-color: var(--bs-orange-dark);
+            border-color: var(--bs-orange-dark);
+            color: var(--bs-primary);
+        }
+
+        .btn-orange {
+            background: linear-gradient(to right, var(--bs-orange), var(--bs-orange-dark));
+            border: none;
+            color: var(--bs-primary);
+            font-weight: 600;
+        }
+
+        .btn-orange:hover {
+            background: linear-gradient(to right, var(--bs-orange-dark), #d46c00);
+            color: var(--bs-primary);
+        }
+
+        .progress-bar {
+            background-color: var(--bs-secondary);
+        }
+
+        .dropdown-menu {
+            background-color: var(--bs-beige-light);
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--bs-orange);
+            color: var(--bs-primary);
+        }
+
+        /* Department Colors */
+        .department-management {
+            border-left: 4px solid var(--bs-primary);
+        }
+
+        .department-finance {
+            border-left: 4px solid var(--bs-secondary);
+        }
+
+        .department-operations {
+            border-left: 4px solid var(--bs-orange);
+        }
+
+        .department-member-services {
+            border-left: 4px solid #6610f2;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-secondary top-bar wow fadeIn" data-wow-delay="0.1s">
+        <div class="row align-items-center h-100">
+            <div class="col-lg-4 text-center text-lg-start">
+                <a href="index.html">
+                    <h1 class="display-5 text-primary m-0">Polytech Sacco</h1>
+                </a>
+            </div>
+            <div class="col-lg-8 d-none d-lg-block">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="d-flex justify-content-end">
+                            <div class="flex-shrink-0 btn-square bg-primary">
+                                <i class="fa fa-phone-alt text-white"></i>
+                            </div>
+                            <div class="ms-2">
+                                <h6 class="text-primary mb-0">Call Us</h6>
+                                <span class="text-white">+012 345 6789</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="d-flex justify-content-end">
+                            <div class="flex-shrink-0 btn-square bg-primary">
+                                <i class="fa fa-envelope-open text-white"></i>
+                            </div>
+                            <div class="ms-2">
+                                <h6 class="text-primary mb-0">Mail Us</h6>
+                                <span class="text-white">info@polytechsacco.com</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="d-flex justify-content-end">
+                            <div class="flex-shrink-0 btn-square bg-primary">
+                                <i class="fa fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div class="ms-2">
+                                <h6 class="text-primary mb-0">Address</h6>
+                                <span class="text-white">123 Street, Nairobi, Kenya</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar Start -->
+    <div class="container-fluid bg-secondary px-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="nav-bar">
+            <nav class="navbar navbar-expand-lg navbar-dark px-4 py-lg-0">
+                <h4 class="d-lg-none m-0">Menu</h4>
+                <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav me-auto">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="service.html" class="nav-item nav-link">Services</a>
+                        <a href="loans.html" class="nav-item nav-link">Loans</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Resources</a>
+                            <div class="dropdown-menu m-0">
+                                <a href="events.html" class="dropdown-item">Events</a>
+                                <a href="gallery.html" class="dropdown-item">Gallery</a>
+                                <a href="team.html" class="dropdown-item active">Our Team</a>
+                                <a href="testimonials.html" class="dropdown-item">Testimonials</a>
+                            </div>
+                        </div>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                    <div class="d-none d-lg-flex ms-auto">
+                        <a class="btn btn-square btn-dark ms-2" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-dark ms-2" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-dark ms-2" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-orange ms-2" href="">Members Portal</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center py-4">
+            <h1 class="display-3 text-white animated slideInDown">Our Leadership Team</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Our Team</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Leadership Team Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
+                <p class="section-title bg-white text-center text-primary px-3">Board of Directors</p>
+                <h1 class="display-6 mb-4">Meet Our Leadership Team</h1>
+            </div>
+            <div class="row g-4">
+                <!-- Board Chair -->
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="team-item department-management">
+                        <img class="team-img" src="img/team-1.jpg" alt="Dr. James Mwangi">
+                        <div class="team-detail">
+                            <h3>Dr. James Mwangi</h3>
+                            <div class="team-position">Board Chairman</div>
+                            <div class="team-experience">15+ years in Financial Services</div>
+                            <p class="mb-3">Leading Polytech Sacco with strategic vision and extensive experience in cooperative financial management.</p>
+                        </div>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chief Executive Officer -->
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="team-item department-management">
+                        <img class="team-img" src="img/team-2.jpg" alt="Sarah Wanjiku">
+                        <div class="team-detail">
+                            <h3>Sarah Wanjiku</h3>
+                            <div class="team-position">Chief Executive Officer</div>
+                            <div class="team-experience">12+ years Executive Leadership</div>
+                            <p class="mb-3">Driving operational excellence and member-focused service delivery across all Sacco operations.</p>
+                        </div>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Finance Director -->
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="team-item department-finance">
+                        <img class="team-img" src="img/team-3.jpg" alt="David Ochieng">
+                        <div class="team-detail">
+                            <h3>David Ochieng</h3>
+                            <div class="team-position">Finance Director</div>
+                            <div class="team-experience">CPA-K, 10+ years Finance</div>
+                            <p class="mb-3">Overseeing financial strategy, risk management, and ensuring sustainable growth for our members.</p>
+                        </div>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Leadership Team End -->
+
+    <!-- Management Team Start -->
+    <div class="container-fluid py-5 bg-light">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
+                <p class="section-title bg-white text-center text-primary px-3">Management Team</p>
+                <h1 class="display-6 mb-4">Our Dedicated Management Professionals</h1>
+            </div>
+            <div class="row g-4">
+                <!-- Operations Manager -->
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="team-item department-operations">
+                        <img class="team-img" src="img/team-4.jpg" alt="Grace Akinyi">
+                        <div class="team-detail">
+                            <h3>Grace Akinyi</h3>
+                            <div class="team-position">Operations Manager</div>
+                            <div class="team-experience">8+ years Operations Management</div>
+                            <p class="mb-3">Ensuring seamless daily operations and efficient service delivery across all branches.</p>
+                        </div>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Credit Manager -->
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="team-item department-finance">
+                        <img class="team-img" src="img/team-5.jpg" alt="Peter Kamau">
+                        <div class="team-detail">
+                            <h3>Peter Kamau</h3>
+                            <div class="team-position">Credit Manager</div>
+                            <div class="team-experience">9+ years Credit Analysis</div>
+                            <p class="mb-3">Managing loan portfolio and ensuring responsible lending practices for member benefit.</p>
+                        </div>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member Services Manager -->
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="team-item department-member-services">
+                        <img class="team-img" src="img/team-6.jpg" alt="Lucy Wambui">
+                        <div class="team-detail">
+                            <h3>Lucy Wambui</h3>
+                            <div class="team-position">Member Services Manager</div>
+                            <div class="team-experience">7+ years Customer Service</div>
+                            <p class="mb-3">Dedicated to providing exceptional service and support to our valued members.</p>
+                        </div>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Management Team End -->
+
+    <!-- Department Heads Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
+                <p class="section-title bg-white text-center text-primary px-3">Department Heads</p>
+                <h1 class="display-6 mb-4">Specialized Leadership Across Key Areas</h1>
+            </div>
+            <div class="row g-4">
+                <!-- IT Manager -->
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="team-item department-operations">
+                        <img class="team-img" src="img/team-7.jpg" alt="Michael Njoroge">
+                        <div class="team-detail">
+                            <h3>Michael Njoroge</h3>
+                            <div class="team-position">IT & Digital Solutions Manager</div>
+                            <div class="team-experience">10+ years Technology</div>
+                            <p class="mb-3">Leading digital transformation and ensuring robust technology infrastructure for secure operations.</p>
+                        </div>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marketing Manager -->
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="team-item department-member-services">
+                        <img class="team-img" src="img/team-8.jpg" alt="Esther Muthoni">
+                        <div class="team-detail">
+                            <h3>Esther Muthoni</h3>
+                            <div class="team-position">Marketing & Communications Manager</div>
+                            <div class="team-experience">8+ years Marketing</div>
+                            <p class="mb-3">Building brand awareness and engaging our community through strategic communication.</p>
+                        </div>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Risk & Compliance Manager -->
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="team-item department-finance">
+                        <img class="team-img" src="img/team-9.jpg" alt="John Maina">
+                        <div class="team-detail">
+                            <h3>John Maina</h3>
+                            <div class="team-position">Risk & Compliance Manager</div>
+                            <div class="team-experience">11+ years Risk Management</div>
+                            <p class="mb-3">Ensuring regulatory compliance and implementing robust risk management frameworks.</p>
+                        </div>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Department Heads End -->
+
+    <!-- Team Values Start -->
+    <div class="container-fluid bg-primary py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h1 class="display-4 text-white mb-4">Our Commitment to Excellence</h1>
+                    <p class="fs-5 text-white mb-4">Our team is united by a shared commitment to financial empowerment, member satisfaction, and sustainable growth. We believe in transparency, integrity, and putting our members first in everything we do.</p>
+                    <div class="row g-4 mt-4">
+                        <div class="col-md-4">
+                            <div class="bg-white p-4 rounded">
+                                <i class="fa fa-shield-alt fa-2x text-primary mb-3"></i>
+                                <h5 class="text-primary">Trust & Integrity</h5>
+                                <p class="mb-0">Building relationships based on trust and ethical practices</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="bg-white p-4 rounded">
+                                <i class="fa fa-users fa-2x text-primary mb-3"></i>
+                                <h5 class="text-primary">Member Focus</h5>
+                                <p class="mb-0">Putting our members' financial well-being at the center</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="bg-white p-4 rounded">
+                                <i class="fa fa-chart-line fa-2x text-primary mb-3"></i>
+                                <h5 class="text-primary">Growth & Innovation</h5>
+                                <p class="mb-0">Driving sustainable growth through innovative solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team Values End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-4 col-xl-4">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Polytech Sacco</h4>
+                        <p>We are committed to providing financial solutions that empower our members and promote economic growth in our community.</p>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-share-alt fa-2x text-white me-2"></i>
+                            <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Quick Links</h4>
+                        <a href="about.html"><i class="fas fa-angle-right me-2"></i> About Us</a>
+                        <a href="contact.html"><i class="fas fa-angle-right me-2"></i> Contact Us</a>
+                        <a href="service.html"><i class="fas fa-angle-right me-2"></i> Our Services</a>
+                        <a href="loans.html"><i class="fas fa-angle-right me-2"></i> Loan Products</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Terms & Policy</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Services</h4>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Savings Accounts</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Loan Services</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Financial Education</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Investment Options</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Insurance Services</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2 col-xl-2">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Contact Info</h4>
+                        <a href=""><i class="fa fa-map-marker-alt me-2"></i> 123 Street, Nairobi, Kenya</a>
+                        <a href=""><i class="fas fa-envelope me-2"></i> info@polytechsacco.com</a>
+                        <a href=""><i class="fas fa-phone me-2"></i> +012 345 6789</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-md-0">
+                    <span class="text-white">© <a href="#">Polytech Sacco</a>, All Right Reserved.</span>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <span class="text-white">Designed By <a href="#">Polytech Sacco Team</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

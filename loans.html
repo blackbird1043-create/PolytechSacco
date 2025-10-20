@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Loan Products - Polytech Sacco</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&family=Open+Sans&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <style>
+        /********** Template CSS **********/
+        :root {
+            --bs-primary: #1E3A8A; /* Navy Blue */
+            --bs-secondary: #007A1E; /* Green */
+            --bs-tertiary: #797E88;
+            --bs-orange: #F5A623;
+            --bs-orange-dark: #E67E00;
+            --bs-beige: #F8EEC7;
+            --bs-beige-light: #FFF8E1;
+        }
+
+        body {
+            background: linear-gradient(to bottom, var(--bs-beige), var(--bs-beige-light));
+        }
+
+        .back-to-top {
+            position: fixed;
+            display: none;
+            right: 30px;
+            bottom: 30px;
+            z-index: 99;
+        }
+
+        .fw-bold {
+            font-weight: 700 !important;
+        }
+
+        .fw-medium {
+            font-weight: 600 !important;
+        }
+
+        .fw-normal {
+            font-weight: 400 !important;
+        }
+
+        /*** Spinner ***/
+        #spinner {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .5s ease-out, visibility 0s linear .5s;
+            z-index: 99999;
+        }
+
+        #spinner.show {
+            transition: opacity .5s ease-out, visibility 0s linear 0s;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /*** Button ***/
+        .btn {
+            transition: .5s;
+        }
+
+        .btn-square {
+            width: 38px;
+            height: 38px;
+        }
+
+        .btn-sm-square {
+            width: 32px;
+            height: 32px;
+        }
+
+        .btn-lg-square {
+            width: 48px;
+            height: 48px;
+        }
+
+        .btn-square,
+        .btn-sm-square,
+        .btn-lg-square {
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: normal;
+        }
+
+        /*** Top Bar ***/
+        .top-bar {
+            height: 90px;
+            padding: 0 90px;
+            background-color: var(--bs-secondary) !important;
+            border-top: 5px solid var(--bs-secondary);
+        }
+
+        .top-bar h6 {
+            letter-spacing: 1px;
+        }
+
+        /*** Nav Bar ***/
+        .nav-bar {
+            padding: 0 90px;
+            transition: .5s;
+        }
+
+        .navbar {
+            background: linear-gradient(to right, var(--bs-orange), var(--bs-orange-dark)) !important;
+        }
+
+        .navbar .navbar-nav .nav-link {
+            margin-right: 30px;
+            padding: 20px 0;
+            color: var(--bs-primary);
+            font-size: 18px;
+            outline: none;
+            font-weight: 600;
+        }
+
+        .navbar .navbar-nav .nav-link:hover,
+        .navbar .navbar-nav .nav-link.active {
+            color: var(--bs-beige-light);
+        }
+
+        .navbar .dropdown-toggle::after {
+            border: none;
+            content: "\f107";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            vertical-align: middle;
+            margin-left: 8px;
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar .navbar-nav .nav-link {
+                margin-right: 0;
+                padding: 10px 0;
+            }
+
+            .navbar .navbar-nav {
+                margin-top: 20px;
+                border-top: 1px solid var(--bs-white);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .navbar .nav-item .dropdown-menu {
+                display: block;
+                border: none;
+                margin-top: 0;
+                top: 150%;
+                opacity: 0;
+                visibility: hidden;
+                transition: .5s;
+            }
+
+            .navbar .nav-item:hover .dropdown-menu {
+                top: 100%;
+                visibility: visible;
+                transition: .5s;
+                opacity: 1;
+            }
+        }
+
+        /*** Page Header ***/
+        .page-header {
+            background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), url(../img/bg.jpg) center center no-repeat;
+            background-size: cover;
+        }
+
+        .page-header .breadcrumb-item+.breadcrumb-item::before {
+            color: var(--bs-tertiary);
+        }
+
+        .page-header .breadcrumb-item,
+        .page-header .breadcrumb-item a {
+            font-size: 18px;
+            color: var(--bs-orange);
+        }
+
+        .page-header .breadcrumb-item.active {
+            color: var(--bs-beige-light);
+        }
+
+        /*** Loan Products ***/
+        .loan-category {
+            margin-bottom: 50px;
+        }
+
+        .loan-category h2 {
+            color: var(--bs-primary);
+            border-bottom: 2px solid var(--bs-secondary);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .loan-item {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--bs-secondary);
+        }
+
+        .loan-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .loan-item h3 {
+            color: var(--bs-primary);
+            margin-bottom: 15px;
+        }
+
+        .loan-details {
+            margin-bottom: 20px;
+        }
+
+        .loan-detail {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .loan-detail-label {
+            font-weight: 600;
+            width: 180px;
+            color: var(--bs-primary);
+        }
+
+        .loan-detail-value {
+            flex: 1;
+        }
+
+        .loan-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: white;
+            background: var(--bs-secondary);
+        }
+
+        /*** Loan Calculator ***/
+        .loan-calculator {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 50px;
+        }
+
+        .calculator-result {
+            background: var(--bs-primary);
+            color: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        /*** Footer ***/
+        .footer {
+            color: var(--bs-tertiary);
+            background: linear-gradient(rgba(5, 19, 17, .95), rgba(5, 19, 17, .95)), url(../img/bg-footer.jpg) center center no-repeat;
+            background-size: cover;
+        }
+
+        .footer .btn.btn-link {
+            display: block;
+            margin-bottom: 5px;
+            padding: 0;
+            text-align: left;
+            color: var(--bs-tertiary);
+            font-weight: normal;
+            text-transform: capitalize;
+            transition: .3s;
+        }
+
+        .footer .btn.btn-link::before {
+            position: relative;
+            content: "\f105";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-right: 10px;
+        }
+
+        .footer .btn.btn-link:hover {
+            color: var(--bs-light);
+            letter-spacing: 1px;
+            box-shadow: none;
+        }
+
+        .footer .copyright {
+            border-top: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        /* Custom colors for Polytech Sacco */
+        .bg-primary {
+            background-color: var(--bs-primary) !important;
+        }
+
+        .bg-secondary {
+            background-color: var(--bs-secondary) !important;
+        }
+
+        .text-primary {
+            color: var(--bs-primary) !important;
+        }
+
+        .text-secondary {
+            color: var(--bs-secondary) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--bs-primary);
+            border-color: var(--bs-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #152a6e;
+            border-color: #152a6e;
+        }
+
+        .btn-secondary {
+            background-color: var(--bs-secondary);
+            border-color: var(--bs-secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #006118;
+            border-color: #006118;
+        }
+
+        .btn-dark {
+            background-color: var(--bs-orange);
+            border-color: var(--bs-orange);
+            color: var(--bs-primary);
+        }
+
+        .btn-dark:hover {
+            background-color: var(--bs-orange-dark);
+            border-color: var(--bs-orange-dark);
+            color: var(--bs-primary);
+        }
+
+        .btn-orange {
+            background: linear-gradient(to right, var(--bs-orange), var(--bs-orange-dark));
+            border: none;
+            color: var(--bs-primary);
+            font-weight: 600;
+        }
+
+        .btn-orange:hover {
+            background: linear-gradient(to right, var(--bs-orange-dark), #d46c00);
+            color: var(--bs-primary);
+        }
+
+        .progress-bar {
+            background-color: var(--bs-secondary);
+        }
+
+        .dropdown-menu {
+            background-color: var(--bs-beige-light);
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--bs-orange);
+            color: var(--bs-primary);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-secondary top-bar wow fadeIn" data-wow-delay="0.1s">
+        <div class="row align-items-center h-100">
+            <div class="col-lg-4 text-center text-lg-start">
+                <a href="index.html">
+                    <h1 class="display-5 text-primary m-0">Polytech Sacco</h1>
+                </a>
+            </div>
+            <div class="col-lg-8 d-none d-lg-block">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="d-flex justify-content-end">
+                            <div class="flex-shrink-0 btn-square bg-primary">
+                                <i class="fa fa-phone-alt text-white"></i>
+                            </div>
+                            <div class="ms-2">
+                                <h6 class="text-primary mb-0">Call Us</h6>
+                                <span class="text-white">+012 345 6789</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="d-flex justify-content-end">
+                            <div class="flex-shrink-0 btn-square bg-primary">
+                                <i class="fa fa-envelope-open text-white"></i>
+                            </div>
+                            <div class="ms-2">
+                                <h6 class="text-primary mb-0">Mail Us</h6>
+                                <span class="text-white">info@polytechsacco.com</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="d-flex justify-content-end">
+                            <div class="flex-shrink-0 btn-square bg-primary">
+                                <i class="fa fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div class="ms-2">
+                                <h6 class="text-primary mb-0">Address</h6>
+                                <span class="text-white">123 Street, Nairobi, Kenya</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar Start -->
+    <div class="container-fluid bg-secondary px-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="nav-bar">
+            <nav class="navbar navbar-expand-lg navbar-dark px-4 py-lg-0">
+                <h4 class="d-lg-none m-0">Menu</h4>
+                <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav me-auto">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="service.html" class="nav-item nav-link">Services</a>
+                        <a href="loans.html" class="nav-item nav-link active">Loans</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Resources</a>
+                            <div class="dropdown-menu m-0">
+                                <a href="event.html" class="dropdown-item">Events</a>
+                                <a href="gallery.html" class="dropdown-item">Gallery</a>
+                                <a href="team.html" class="dropdown-item">Our Team</a>
+                                <a href="testimonials.html" class="dropdown-item">Testimonials</a>
+                            </div>
+                        </div>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                    <div class="d-none d-lg-flex ms-auto">
+                        <a class="btn btn-square btn-dark ms-2" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-dark ms-2" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-dark ms-2" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-orange ms-2" href="">Members Portal</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center py-4">
+            <h1 class="display-3 text-white animated slideInDown">Loan Products</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Loans</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Loan Calculator Start -->
+    <div class="container-fluid py-5 bg-light">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
+                <p class="section-title bg-white text-center text-primary px-3">Loan Calculator</p>
+                <h1 class="display-6 mb-5">Calculate Your Loan Repayments</h1>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-8 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="loan-calculator">
+                        <form id="loanCalculator">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="loanAmount" placeholder="Loan Amount" value="100000" min="1000" step="1000">
+                                        <label for="loanAmount">Loan Amount (Ksh)</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="loanType">
+                                            <option value="super-emergency">Super Emergency Loan</option>
+                                            <option value="super-quick">Super Quick Loan</option>
+                                            <option value="normal">Normal Loan</option>
+                                            <option value="school-fees">School Fees Loan</option>
+                                            <option value="mobile-banking">Mobile Banking Loan</option>
+                                            <option value="development">Development Loan</option>
+                                            <option value="super-school-fees">Super School Fees Loan</option>
+                                            <option value="group">Group Loan</option>
+                                            <option value="emergency1">Emergency Loan 1</option>
+                                            <option value="quick">Quick Loan</option>
+                                        </select>
+                                        <label for="loanType">Loan Type</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="button" class="btn btn-primary w-100 py-3" onclick="calculateLoan()">Calculate Repayment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="calculator-result h-100 d-flex flex-column justify-content-center">
+                        <h3 class="text-white mb-4">Your Monthly Payment</h3>
+                        <h1 class="display-4 text-white mb-4" id="monthlyPayment">Ksh 0</h1>
+                        <div class="mb-3">
+                            <p class="mb-1">Total Payment: <span id="totalPayment" class="fw-bold">Ksh 0</span></p>
+                            <p class="mb-1">Total Interest: <span id="totalInterest" class="fw-bold">Ksh 0</span></p>
+                            <p class="mb-1">Loan Term: <span id="loanTerm" class="fw-bold">0 months</span></p>
+                        </div>
+                        <a href="#apply" class="btn btn-orange mt-3">Apply for Loan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Loan Calculator End -->
+
+    <!-- BOSA Products (Individual) Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="loan-category">
+                <h2 class="text-center wow fadeIn" data-wow-delay="0.1s">BOSA PRODUCTS (INDIVIDUAL)</h2>
+                <div class="row g-4">
+                    <!-- Super Emergency Loan -->
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="loan-item">
+                            <div class="loan-icon">
+                                <i class="fa fa-ambulance"></i>
+                            </div>
+                            <h3>Super Emergency Loan</h3>
+                            <div class="loan-details">
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Repayment Period:</div>
+                                    <div class="loan-detail-value">20 months</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Interest Rate:</div>
+                                    <div class="loan-detail-value">16.00% p.a. on reducing balance</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Fees Chargeable:</div>
+                                    <div class="loan-detail-value">Appraisal and Processing</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Guarantor Level:</div>
+                                    <div class="loan-detail-value">100.00%; Member Self Guarantee (75.00%); Other Members' Guarantee</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Loan Ceiling:</div>
+                                    <div class="loan-detail-value">X 3 of Group Savings</div>
+                                </div>
+                            </div>
+                            <a href="#apply" class="btn btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Super Quick Loan -->
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.2s">
+                        <div class="loan-item">
+                            <div class="loan-icon">
+                                <i class="fa fa-bolt"></i>
+                            </div>
+                            <h3>Super Quick Loan</h3>
+                            <div class="loan-details">
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Repayment Period:</div>
+                                    <div class="loan-detail-value">5 months</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Interest Rate:</div>
+                                    <div class="loan-detail-value">5.00% per month fixed rate</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Fees Chargeable:</div>
+                                    <div class="loan-detail-value">Appraisal and Processing</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Guarantor Level:</div>
+                                    <div class="loan-detail-value">100.00%; Member Self Guarantee (75.00%); Other Members' Guarantee</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Loan Ceiling:</div>
+                                    <div class="loan-detail-value">X 3 of Group Savings</div>
+                                </div>
+                            </div>
+                            <a href="#apply" class="btn btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Normal Loan -->
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
+                        <div class="loan-item">
+                            <div class="loan-icon">
+                                <i class="fa fa-hand-holding-usd"></i>
+                            </div>
+                            <h3>Normal Loan</h3>
+                            <div class="loan-details">
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Repayment Period:</div>
+                                    <div class="loan-detail-value">48 months</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Interest Rate:</div>
+                                    <div class="loan-detail-value">12.00% p.a. on reducing balance</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Fees Chargeable:</div>
+                                    <div class="loan-detail-value">Appraisal and Processing</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Guarantor Level:</div>
+                                    <div class="loan-detail-value">100.00%; Member Self Guarantee (75.00%); Other Members' Guarantee</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Loan Ceiling:</div>
+                                    <div class="loan-detail-value">X 3 of Group Savings</div>
+                                </div>
+                            </div>
+                            <a href="#apply" class="btn btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- School Fees Loan -->
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.4s">
+                        <div class="loan-item">
+                            <div class="loan-icon">
+                                <i class="fa fa-graduation-cap"></i>
+                            </div>
+                            <h3>School Fees Loan</h3>
+                            <div class="loan-details">
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Repayment Period:</div>
+                                    <div class="loan-detail-value">12 months</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Interest Rate:</div>
+                                    <div class="loan-detail-value">15.00% p.a. on reducing balance</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Fees Chargeable:</div>
+                                    <div class="loan-detail-value">Appraisal and Processing</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Guarantor Level:</div>
+                                    <div class="loan-detail-value">100.00%; Member Self Guarantee (75.00%); Other Members' Guarantee</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Loan Ceiling:</div>
+                                    <div class="loan-detail-value">X 3 of Group Savings</div>
+                                </div>
+                            </div>
+                            <a href="#apply" class="btn btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile Banking Loan -->
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="loan-item">
+                            <div class="loan-icon">
+                                <i class="fa fa-mobile-alt"></i>
+                            </div>
+                            <h3>Mobile Banking Loan</h3>
+                            <div class="loan-details">
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Repayment Period:</div>
+                                    <div class="loan-detail-value">1 month</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Interest Rate:</div>
+                                    <div class="loan-detail-value">7.00% per month fixed rate</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Fees Chargeable:</div>
+                                    <div class="loan-detail-value">Appraisal and Processing</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Guarantor Level:</div>
+                                    <div class="loan-detail-value">100.00%; Member Self Guarantee (75.00%); Other Members' Guarantee</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Loan Ceiling:</div>
+                                    <div class="loan-detail-value">X 3 of Group Savings</div>
+                                </div>
+                            </div>
+                            <a href="#apply" class="btn btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Development Loan -->
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.6s">
+                        <div class="loan-item">
+                            <div class="loan-icon">
+                                <i class="fa fa-home"></i>
+                            </div>
+                            <h3>Development Loan</h3>
+                            <div class="loan-details">
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Repayment Period:</div>
+                                    <div class="loan-detail-value">60 months</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Interest Rate:</div>
+                                    <div class="loan-detail-value">12.50% p.a. on reducing balance</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Fees Chargeable:</div>
+                                    <div class="loan-detail-value">Appraisal and Processing</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Guarantor Level:</div>
+                                    <div class="loan-detail-value">100.00%; Member Self Guarantee (75.00%); Other Members' Guarantee</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Loan Ceiling:</div>
+                                    <div class="loan-detail-value">X 3 of Group Savings</div>
+                                </div>
+                            </div>
+                            <a href="#apply" class="btn btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Super School Fees Loan -->
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.7s">
+                        <div class="loan-item">
+                            <div class="loan-icon">
+                                <i class="fa fa-university"></i>
+                            </div>
+                            <h3>Super School Fees Loan</h3>
+                            <div class="loan-details">
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Repayment Period:</div>
+                                    <div class="loan-detail-value">20 months</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Interest Rate:</div>
+                                    <div class="loan-detail-value">15.00% p.a. on reducing balance</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Fees Chargeable:</div>
+                                    <div class="loan-detail-value">Appraisal and Processing</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Guarantor Level:</div>
+                                    <div class="loan-detail-value">100.00%; Member Self Guarantee (75.00%); Other Members' Guarantee</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Loan Ceiling:</div>
+                                    <div class="loan-detail-value">X 3 of Group Savings</div>
+                                </div>
+                            </div>
+                            <a href="#apply" class="btn btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BOSA Products (Group) Start -->
+            <div class="loan-category">
+                <h2 class="text-center wow fadeIn" data-wow-delay="0.1s">BOSA PRODUCTS (GROUP)</h2>
+                <div class="row g-4">
+                    <!-- Group Loan -->
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.2s">
+                        <div class="loan-item">
+                            <div class="loan-icon">
+                                <i class="fa fa-users"></i>
+                            </div>
+                            <h3>Group Loan</h3>
+                            <div class="loan-details">
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Repayment Period:</div>
+                                    <div class="loan-detail-value">72 months</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Interest Rate:</div>
+                                    <div class="loan-detail-value">14.00% p.a. on reducing balance</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Fees Chargeable:</div>
+                                    <div class="loan-detail-value">Appraisal and Processing</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Guarantor Level:</div>
+                                    <div class="loan-detail-value">100.00%; Group Self Guarantee (75.00%); Group Members' Guarantee</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Loan Ceiling:</div>
+                                    <div class="loan-detail-value">X 3 of Group Savings</div>
+                                </div>
+                            </div>
+                            <a href="#apply" class="btn btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Emergency Loan 1 -->
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
+                        <div class="loan-item">
+                            <div class="loan-icon">
+                                <i class="fa fa-first-aid"></i>
+                            </div>
+                            <h3>Emergency Loan 1</h3>
+                            <div class="loan-details">
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Repayment Period:</div>
+                                    <div class="loan-detail-value">12 months</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Interest Rate:</div>
+                                    <div class="loan-detail-value">16.00% p.a. on reducing balance</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Fees Chargeable:</div>
+                                    <div class="loan-detail-value">Appraisal and Processing</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Guarantor Level:</div>
+                                    <div class="loan-detail-value">100.00%; Member Self Guarantee (75.00%); Other Members' Guarantee</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Loan Ceiling:</div>
+                                    <div class="loan-detail-value">X 3 of Group Savings</div>
+                                </div>
+                            </div>
+                            <a href="#apply" class="btn btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Loan -->
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.4s">
+                        <div class="loan-item">
+                            <div class="loan-icon">
+                                <i class="fa fa-rocket"></i>
+                            </div>
+                            <h3>Quick Loan</h3>
+                            <div class="loan-details">
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Repayment Period:</div>
+                                    <div class="loan-detail-value">3 months</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Interest Rate:</div>
+                                    <div class="loan-detail-value">5.00% per month fixed rate</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Fees Chargeable:</div>
+                                    <div class="loan-detail-value">Appraisal and Processing</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Guarantor Level:</div>
+                                    <div class="loan-detail-value">100.00%; Member Self Guarantee (75.00%); Other Members' Guarantee</div>
+                                </div>
+                                <div class="loan-detail">
+                                    <div class="loan-detail-label">Loan Ceiling:</div>
+                                    <div class="loan-detail-value">X 3 of Group Savings</div>
+                                </div>
+                            </div>
+                            <a href="#apply" class="btn btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- BOSA Products End -->
+
+    <!-- Apply Now Section Start -->
+    <div class="container-fluid bg-primary py-5 wow fadeIn" data-wow-delay="0.1s" id="apply">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h1 class="display-4 text-white mb-4">Ready to Apply for a Loan?</h1>
+                    <p class="fs-5 text-white mb-4">Our loan application process is simple and straightforward. Get started today and receive a decision quickly.</p>
+                    <div class="d-flex justify-content-center flex-wrap">
+                        <a href="contact.html" class="btn btn-secondary py-3 px-5 me-3 mb-3">Contact Us</a>
+                        <a href="tel:+0123456789" class="btn btn-orange py-3 px-5 mb-3">Call Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Apply Now Section End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-4 col-xl-4">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Polytech Sacco</h4>
+                        <p>We are committed to providing financial solutions that empower our members and promote economic growth in our community.</p>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-share-alt fa-2x text-white me-2"></i>
+                            <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Quick Links</h4>
+                        <a href="about.html"><i class="fas fa-angle-right me-2"></i> About Us</a>
+                        <a href="contact.html"><i class="fas fa-angle-right me-2"></i> Contact Us</a>
+                        <a href="service.html"><i class="fas fa-angle-right me-2"></i> Our Services</a>
+                        <a href="loans.html"><i class="fas fa-angle-right me-2"></i> Loan Products</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Terms & Policy</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Services</h4>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Savings Accounts</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Loan Services</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Financial Education</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Investment Options</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Insurance Services</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2 col-xl-2">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-white mb-4">Contact Info</h4>
+                        <a href=""><i class="fa fa-map-marker-alt me-2"></i> 123 Street, Nairobi, Kenya</a>
+                        <a href=""><i class="fas fa-envelope me-2"></i> info@polytechsacco.com</a>
+                        <a href=""><i class="fas fa-phone me-2"></i> +012 345 6789</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-md-0">
+                    <span class="text-white">© <a href="#">Polytech Sacco</a>, All Right Reserved.</span>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <span class="text-white">Designed By <a href="#">Polytech Sacco Team</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <!-- Loan Calculator Script -->
+    <script>
+        // Loan product details
+        const loanProducts = {
+            'super-emergency': { term: 20, rate: 16, type: 'reducing' },
+            'super-quick': { term: 5, rate: 5, type: 'fixed' },
+            'normal': { term: 48, rate: 12, type: 'reducing' },
+            'school-fees': { term: 12, rate: 15, type: 'reducing' },
+            'mobile-banking': { term: 1, rate: 7, type: 'fixed' },
+            'development': { term: 60, rate: 12.5, type: 'reducing' },
+            'super-school-fees': { term: 20, rate: 15, type: 'reducing' },
+            'group': { term: 72, rate: 14, type: 'reducing' },
+            'emergency1': { term: 12, rate: 16, type: 'reducing' },
+            'quick': { term: 3, rate: 5, type: 'fixed' }
+        };
+
+        function calculateLoan() {
+            const loanAmount = parseFloat(document.getElementById('loanAmount').value);
+            const loanType = document.getElementById('loanType').value;
+            const product = loanProducts[loanType];
+            
+            if (!product) return;
+            
+            let monthlyPayment, totalPayment, totalInterest;
+            
+            if (product.type === 'reducing') {
+                // Reducing balance calculation
+                const monthlyInterestRate = (product.rate / 100) / 12;
+                monthlyPayment = (loanAmount * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -product.term));
+                totalPayment = monthlyPayment * product.term;
+                totalInterest = totalPayment - loanAmount;
+            } else {
+                // Fixed rate calculation (monthly rate)
+                monthlyPayment = loanAmount * (product.rate / 100);
+                totalPayment = monthlyPayment * product.term;
+                totalInterest = totalPayment - loanAmount;
+            }
+            
+            document.getElementById('monthlyPayment').textContent = 'Ksh ' + monthlyPayment.toFixed(2);
+            document.getElementById('totalPayment').textContent = 'Ksh ' + totalPayment.toFixed(2);
+            document.getElementById('totalInterest').textContent = 'Ksh ' + totalInterest.toFixed(2);
+            document.getElementById('loanTerm').textContent = product.term + ' months';
+        }
+        
+        // Initialize calculator on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            calculateLoan();
+        });
+    </script>
+</body>
+
+</html>
