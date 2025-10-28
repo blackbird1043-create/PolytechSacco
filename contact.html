@@ -36,12 +36,13 @@
             --bs-tertiary: #797E88;
             --bs-orange: #F5A623;
             --bs-orange-dark: #E67E00;
-            --bs-beige: #F8EEC7;
-            --bs-beige-light: #FFF8E1;
+            --bs-gold: #D4AF37; /* Golden color */
+            --bs-gold-light: #F5E8B5; /* Light golden color */
         }
 
         body {
-            background: linear-gradient(to bottom, var(--bs-beige), var(--bs-beige-light));
+            background: linear-gradient(to bottom, var(--bs-gold-light), var(--bs-gold));
+            padding-bottom: 0;
         }
 
         .back-to-top {
@@ -141,7 +142,7 @@
 
         .navbar .navbar-nav .nav-link:hover,
         .navbar .navbar-nav .nav-link.active {
-            color: var(--bs-beige-light);
+            color: var(--bs-gold-light);
         }
 
         .navbar .dropdown-toggle::after {
@@ -184,39 +185,9 @@
             }
         }
 
-        /*** Header Carousel ***/
-        .header-carousel {
-            position: relative;
-            background: url(../img/bg.jpg) center center no-repeat;
-            background-size: cover;
-        }
-
-        .header-carousel .carousel-img {
-            position: relative;
-        }
-
-        .header-carousel .owl-nav {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-        }
-
-        .header-carousel .owl-nav .owl-prev,
-        .header-carousel .owl-nav .owl-next {
-            width: 45px;
-            height: 45px;
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            color: var(--bs-dark);
-            background: var(--bs-primary);
-        }
-
+        /*** Page Header ***/
         .page-header {
-            background: url(../img/bg.jpg) center center no-repeat;
+            background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), url(../img/bg.jpg) center center no-repeat;
             background-size: cover;
         }
 
@@ -227,11 +198,11 @@
         .page-header .breadcrumb-item,
         .page-header .breadcrumb-item a {
             font-size: 18px;
-            color: var(--bs-primary);
+            color: var(--bs-orange);
         }
 
         .page-header .breadcrumb-item.active {
-            color: var(--bs-dark);
+            color: var(--bs-gold-light);
         }
 
         /*** Video ***/
@@ -329,292 +300,13 @@
             position: relative;
             display: inline-block;
             text-transform: uppercase;
-        }
-
-        .section-title::before {
-            position: absolute;
-            content: "";
-            width: calc(100% + 80px);
-            height: 0px;
-            top: 5px;
-            left: -40px;
-            border-top: 2px solid var(--bs-primary);
-            z-index: -1;
-        }
-
-        .section-title::after {
-            position: absolute;
-            content: "";
-            width: calc(100% + 120px);
-            height: 0px;
-            bottom: 6px;
-            left: -60px;
-            border-bottom: 2px solid var(--bs-primary);
-            z-index: -1;
-        }
-
-        .section-title.text-start::before {
-            width: calc(100% + 40px);
-            left: 0;
-        }
-
-        .section-title.text-start::after {
-            width: calc(100% + 60px);
-            left: 0;
-        }
-
-        /*** About ***/
-        .about-img {
-            position: relative;
-        }
-
-        .about-img::before,
-        .about-img::after {
-            position: absolute;
-            content: "";
-            width: 33%;
-            height: 90px;
-            background: var(--bs-white);
-        }
-
-        .about-img::before {
-            top: 0px;
-            left: 0px;
-        }
-
-        .about-img::after {
-            right: 0px;
-            bottom: 0px;
-        }
-
-        /*** Service ***/
-        .service-title {
-            height: 100%;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background: url(../img/bg.jpg) center center no-repeat;
-            background-size: cover;
-        }
-
-        .service-item {
-            overflow: hidden;
-        }
-
-        .service-item .btn-square {
-            width: 65px;
-            height: 65px;
-        }
-
-        .service-item a {
-            position: relative;
-            padding: 0;
-            font-size: 14px;
-            line-height: 14px;
-            text-transform: uppercase;
-            transition: .5s;
-        }
-
-        .service-item a::after {
-            position: absolute;
-            content: "";
-            width: 500%;
-            height: 0;
-            left: 100%;
-            bottom: 3px;
-            margin-left: 10px;
-            border-bottom: 2px solid var(--bs-primary);
-        }
-
-        /*** Donation ***/
-        .donation-item {
-            box-shadow: 0 0 30px rgba(0, 0, 0, .05);
-            transition: .5s;
-        }
-
-        .donation-item:hover {
-            box-shadow: 0 0 30px rgba(0, 0, 0, .1);
-        }
-
-        .donation-item .donation-progress {
-            width: 80px;
-        }
-
-        .donation-item .progress .progress-bar {
-            height: 20px;
-            overflow: visible;
-            transition: 3s;
-        }
-
-        /*** Banner ***/
-        .banner .banner-inner {
-            position: relative;
-            background: url(../img/bg.jpg) center center no-repeat;
-            background-size: cover;
-        }
-
-        .banner .banner-inner::before,
-        .banner .banner-inner::after {
-            position: absolute;
-            content: "";
-            width: 0;
-            height: 0;
-        }
-
-        .banner .banner-inner::before {
-            top: 0;
-            left: 0;
-            border-top: 150px solid var(--bs-primary);
-            border-right: 150px solid transparent;
-        }
-
-        .banner .banner-inner::after {
-            right: 0;
-            bottom: 0;
-            border-bottom: 150px solid var(--bs-secondary);
-            border-left: 150px solid transparent;
-        }
-
-        /*** Event ***/
-        .event-item {
-            box-shadow: 0 0 30px rgba(0, 0, 0, .05);
-            transition: .5s;
-        }
-
-        .event-item:hover {
-            box-shadow: 0 0 30px rgba(0, 0, 0, .1);
-        }
-
-        /*** Donate ***/
-        .donate .donate-text {
-            position: relative;
-            background: url(../img/bg.jpg) center center no-repeat;
-            background-size: cover;
-        }
-
-        .donate .donate-text::before,
-        .donate .donate-text::after {
-            position: absolute;
-            content: "";
-            width: 0;
-            height: 0;
-        }
-
-        .donate .donate-text::before {
-            top: 0;
-            left: 0;
-            border-top: 150px solid var(--bs-primary);
-            border-right: 150px solid transparent;
-        }
-
-        .donate .donate-text::after {
-            right: 0;
-            bottom: 0;
-            border-bottom: 150px solid var(--bs-secondary);
-            border-left: 150px solid transparent;
-        }
-
-        .donate .donate-form .form-control {
-            border: none;
-            background: rgba(255, 255, 255, .5);
-        }
-
-        .donate .donate-form .btn-group {
-            display: flex;
-        }
-
-        .donate .donate-form .btn-group .btn {
-            margin: 0;
-            padding: 0;
-            height: 55px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: none;
-            color: var(--bs-tertiary);
-            background: rgba(255, 255, 255, .5);
-        }
-
-        .donate .donate-form .btn-group .btn-check:checked+.btn {
-            border: none;
-            background: var(--bs-white);
-        }
-
-        /*** Team ***/
-        .team-item {
-            box-shadow: 0 0 30px rgba(0, 0, 0, .05);
-            transition: .5s;
-        }
-
-        .team-item:hover {
-            box-shadow: 0 0 30px rgba(0, 0, 0, .1);
-        }
-
-        .team-item .team-detail span {
-            letter-spacing: 2px;
-        }
-
-        /*** Testimonial ***/
-        .testimonial-title {
-            height: 100%;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background: url(../img/bg.jpg) center center no-repeat;
-            background-size: cover;
-        }
-
-        .testimonial-img {
-            position: relative;
-            padding: 45px 0 45px 90px;
-        }
-
-        .testimonial-img::before {
-            position: absolute;
-            content: "";
-            top: 0;
-            left: 0;
-            width: calc(50% + 45px);
-            height: 100%;
-            background: var(--bs-primary);
-            z-index: -1;
-        }
-
-        .testimonial-carousel .owl-nav {
-            position: absolute;
-            top: 50%;
-            left: 1.5rem;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .testimonial-carousel .owl-prev,
-        .testimonial-carousel .owl-next {
-            width: 45px;
-            height: 45px;
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            color: var(--bs-white);
-            background: var(--bs-secondary);
-            transition: .5s;
-        }
-
-        .testimonial-carousel .owl-prev:hover,
-        .testimonial-carousel .owl-next:hover {
-            color: var(--bs-secondary);
-            background: var(--bs-white);
-        }
-
-        @media (max-width: 768px) {
-            .testimonial-carousel .owl-nav {
-                top: 6.3rem;
-            }
+            background: linear-gradient(to right, var(--bs-gold), var(--bs-gold-light));
+            padding: 8px 20px;
+            border-radius: 30px;
+            color: var(--bs-primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         /*** Footer ***/
@@ -719,7 +411,7 @@
         }
 
         .dropdown-menu {
-            background-color: var(--bs-beige-light);
+            background-color: var(--bs-gold-light);
         }
 
         .dropdown-item:hover {
@@ -734,6 +426,8 @@
             padding: 30px;
             border-radius: 10px;
             height: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .contact-info h4 {
@@ -743,30 +437,108 @@
 
         .contact-info-item {
             margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-info-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
         }
 
         .contact-info-item i {
             color: var(--bs-orange);
             margin-right: 10px;
             font-size: 20px;
+            width: 30px;
+            text-align: center;
         }
 
         .contact-form {
             background-color: white;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, .05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .form-control {
             border: 1px solid var(--bs-primary);
             padding: 12px 15px;
             margin-bottom: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
         }
 
         .form-control:focus {
             border-color: var(--bs-orange);
             box-shadow: 0 0 0 0.2rem rgba(245, 166, 35, 0.25);
+        }
+
+        /* Map Styling */
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        /* Video Section Styling */
+        .video-section {
+            background: linear-gradient(rgba(30, 58, 138, 0.9), rgba(30, 58, 138, 0.9));
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .top-bar, .nav-bar {
+                padding: 0 20px;
+            }
+            
+            .contact-info, .contact-form {
+                padding: 20px;
+            }
+            
+            .container-fluid.py-5 {
+                padding-top: 2rem !important;
+                padding-bottom: 2rem !important;
+            }
+            
+            .display-6 {
+                font-size: 1.8rem;
+            }
+            
+            .btn-play {
+                padding: 15px 18px 18px 25px;
+            }
+            
+            .btn-play:before, .btn-play:after {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-info, .contact-form {
+                padding: 15px;
+            }
+            
+            .contact-info-item {
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+            }
+            
+            .form-control {
+                padding: 10px 12px;
+                margin-bottom: 15px;
+            }
+            
+            .video-section .h-100 {
+                padding: 20px 0;
+            }
         }
     </style>
 </head>
@@ -868,7 +640,7 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container text-center py-4">
-            <h1 class="display-3 text-primary animated slideInDown">Contact Us</h1>
+            <h1 class="display-3 text-white animated slideInDown">Contact Us</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb justify-content-center mb-0">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -880,7 +652,7 @@
     <!-- Page Header End -->
 
     <!-- Video Start -->
-    <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container-fluid video-section mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container">
             <div class="row g-0">
                 <div class="col-lg-11">
@@ -1009,9 +781,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <iframe class="w-100 rounded"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.808723999663!2d36.82115931475392!3d-1.292335835980925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d664f5d5a7%3A0x9b6746c2c4b8e6e9!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2ske!4v1641234567890!5m2!1sen!2ske"
-                        height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <div class="map-container">
+                        <iframe class="w-100"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.808723999663!2d36.82115931475392!3d-1.292335835980925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d664f5d5a7%3A0x9b6746c2c4b8e6e9!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2ske!4v1641234567890!5m2!1sen!2ske"
+                            height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
                 </div>
             </div>
         </div>

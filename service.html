@@ -36,12 +36,13 @@
             --bs-tertiary: #797E88;
             --bs-orange: #F5A623;
             --bs-orange-dark: #E67E00;
-            --bs-beige: #F8EEC7;
-            --bs-beige-light: #FFF8E1;
+            --bs-gold: #FFD700; /* Golden color */
+            --bs-gold-light: #FFF9C4; /* Light golden color */
         }
 
         body {
-            background: linear-gradient(to bottom, var(--bs-beige), var(--bs-beige-light));
+            background: linear-gradient(to bottom, var(--bs-gold-light), var(--bs-gold));
+            color: #333;
         }
 
         .back-to-top {
@@ -141,7 +142,7 @@
 
         .navbar .navbar-nav .nav-link:hover,
         .navbar .navbar-nav .nav-link.active {
-            color: var(--bs-beige-light);
+            color: var(--bs-gold-light);
         }
 
         .navbar .dropdown-toggle::after {
@@ -201,7 +202,7 @@
         }
 
         .page-header .breadcrumb-item.active {
-            color: var(--bs-beige-light);
+            color: var(--bs-gold-light);
         }
 
         /*** Service ***/
@@ -225,14 +226,15 @@
             background: white;
             border-radius: 10px;
             padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .service-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
         .service-item .btn-square {
@@ -245,23 +247,34 @@
         .service-item a {
             position: relative;
             padding: 0;
-            font-size: 14px;
-            line-height: 14px;
+            font-size: 16px;
+            line-height: 16px;
             text-transform: uppercase;
             transition: .5s;
-            color: var(--bs-primary);
+            color: var(--bs-secondary);
             font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .service-item a:hover {
+            color: var(--bs-primary);
         }
 
         .service-item a::after {
             position: absolute;
             content: "";
-            width: 500%;
-            height: 0;
-            left: 100%;
-            bottom: 3px;
-            margin-left: 10px;
-            border-bottom: 2px solid var(--bs-primary);
+            width: 100%;
+            height: 2px;
+            left: 0;
+            bottom: -3px;
+            background: var(--bs-secondary);
+            transition: width 0.3s ease;
+        }
+
+        .service-item a:hover::after {
+            width: 120%;
         }
 
         /*** Loan Calculator ***/
@@ -269,7 +282,8 @@
             background: white;
             border-radius: 10px;
             padding: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .calculator-result {
@@ -451,7 +465,7 @@
         }
 
         .dropdown-menu {
-            background-color: var(--bs-beige-light);
+            background-color: var(--bs-gold-light);
         }
 
         .dropdown-item:hover {
@@ -518,7 +532,7 @@
         .loan-tag {
             background: var(--bs-secondary);
             color: white;
-            padding: 4px 12px;
+            padding: 6px 12px;
             border-radius: 20px;
             font-size: 12px;
             text-decoration: none;
@@ -529,6 +543,41 @@
             background: var(--bs-primary);
             color: white;
             transform: translateY(-2px);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .top-bar, .nav-bar {
+                padding: 0 20px;
+            }
+            
+            .service-item {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+            
+            .service-item a {
+                font-size: 14px;
+            }
+            
+            .loan-calculator {
+                padding: 20px;
+            }
+            
+            .calculator-result {
+                padding: 20px;
+            }
+        }
+
+        /* Section Title */
+        .section-title {
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+            background: var(--bs-gold) !important;
+            padding: 5px 15px;
+            border-radius: 5px;
+            color: #333 !important;
         }
     </style>
 </head>
@@ -781,10 +830,10 @@
     <!-- Services End -->
 
     <!-- Loan Calculator Start -->
-    <div class="container-fluid py-5 bg-light">
+    <div class="container-fluid py-5">
         <div class="container">
             <div class="text-center mx-auto wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="section-title bg-white text-center text-primary px-3">Loan Calculator</p>
+                <p class="section-title text-center text-primary px-3">Loan Calculator</p>
                 <h1 class="display-6 mb-5">Calculate Your Loan Repayments</h1>
             </div>
             <div class="row g-5">

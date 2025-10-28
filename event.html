@@ -36,12 +36,13 @@
             --bs-tertiary: #797E88;
             --bs-orange: #F5A623;
             --bs-orange-dark: #E67E00;
-            --bs-beige: #F8EEC7;
-            --bs-beige-light: #FFF8E1;
+            --bs-gold: #FFD700; /* Golden color */
+            --bs-gold-light: #FFF9C4; /* Light golden color */
         }
 
         body {
-            background: linear-gradient(to bottom, var(--bs-beige), var(--bs-beige-light));
+            background: linear-gradient(to bottom, var(--bs-gold-light), var(--bs-gold));
+            color: #333;
         }
 
         .back-to-top {
@@ -141,7 +142,7 @@
 
         .navbar .navbar-nav .nav-link:hover,
         .navbar .navbar-nav .nav-link.active {
-            color: var(--bs-beige-light);
+            color: var(--bs-gold-light);
         }
 
         .navbar .dropdown-toggle::after {
@@ -201,22 +202,23 @@
         }
 
         .page-header .breadcrumb-item.active {
-            color: var(--bs-beige-light);
+            color: var(--bs-gold-light);
         }
 
         /*** Event ***/
         .event-item {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             background: white;
             border-radius: 10px;
             overflow: hidden;
             height: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .event-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
         .event-badge {
@@ -257,30 +259,11 @@
         /*** Banner ***/
         .banner .banner-inner {
             position: relative;
-            background: url(../img/bg.jpg) center center no-repeat;
-            background-size: cover;
-        }
-
-        .banner .banner-inner::before,
-        .banner .banner-inner::after {
-            position: absolute;
-            content: "";
-            width: 0;
-            height: 0;
-        }
-
-        .banner .banner-inner::before {
-            top: 0;
-            left: 0;
-            border-top: 150px solid var(--bs-primary);
-            border-right: 150px solid transparent;
-        }
-
-        .banner .banner-inner::after {
-            right: 0;
-            bottom: 0;
-            border-bottom: 150px solid var(--bs-secondary);
-            border-left: 150px solid transparent;
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         /*** Footer ***/
@@ -385,7 +368,7 @@
         }
 
         .dropdown-menu {
-            background-color: var(--bs-beige-light);
+            background-color: var(--bs-gold-light);
         }
 
         .dropdown-item:hover {
@@ -421,6 +404,41 @@
         .category-training {
             background: #f3e5f5;
             color: #7b1fa2;
+        }
+
+        /* Section Title */
+        .section-title {
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+            background: var(--bs-gold) !important;
+            padding: 5px 15px;
+            border-radius: 5px;
+            color: #333 !important;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .top-bar, .nav-bar {
+                padding: 0 20px;
+            }
+            
+            .event-item {
+                margin-bottom: 20px;
+            }
+            
+            .event-date {
+                width: 70px;
+                padding: 12px;
+            }
+            
+            .event-date .day {
+                font-size: 20px;
+            }
+            
+            .banner .banner-inner {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -536,7 +554,7 @@
     <div class="container-fluid py-5">
         <div class="container">
             <div class="text-center mx-auto wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="section-title bg-white text-center text-primary px-3">Events & Programs</p>
+                <p class="section-title text-center text-primary px-3">Events & Programs</p>
                 <h1 class="display-6 mb-4">Financial Education & Member Engagement</h1>
             </div>
             <div class="row g-4">
@@ -692,7 +710,7 @@
     <!-- Events End -->
 
     <!-- Banner Start -->
-    <div class="container-fluid banner py-5">
+    <div class="container-fluid py-5">
         <div class="container">
             <div class="banner-inner bg-light p-5 wow fadeIn" data-wow-delay="0.1s">
                 <div class="row justify-content-center">

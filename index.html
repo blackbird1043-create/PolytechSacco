@@ -32,16 +32,18 @@
         /********** Template CSS **********/
         :root {
             --bs-primary: #1E3A8A; /* Navy Blue */
-            --bs-secondary: #007A1E; /* Green */
+            --bs-secondary: #00A82D; /* Brighter Green */
             --bs-tertiary: #797E88;
             --bs-orange: #F5A623;
             --bs-orange-dark: #E67E00;
             --bs-beige: #F8EEC7;
             --bs-beige-light: #FFF8E1;
+            --bs-gold: #FFD700; /* Golden color */
+            --bs-gold-light: #FFF9C4; /* Light golden color */
         }
 
         body {
-            background: linear-gradient(to bottom, var(--bs-beige), var(--bs-beige-light));
+            background: linear-gradient(to bottom, var(--bs-gold-light), var(--bs-gold));
         }
 
         .back-to-top {
@@ -193,6 +195,9 @@
 
         .header-carousel .carousel-img {
             position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .header-carousel .owl-nav {
@@ -686,8 +691,8 @@
         }
 
         .btn-secondary:hover {
-            background-color: #006118;
-            border-color: #006118;
+            background-color: #008f25;
+            border-color: #008f25;
         }
 
         .btn-dark {
@@ -803,10 +808,9 @@
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Resources</a>
                             <div class="dropdown-menu m-0">
                                 <a href="event.html" class="dropdown-item">Events</a>
-                                <a href="feature.html" class="dropdown-item">Features</a>
+                                <a href="Downloads.html" class="dropdown-item">Downloads & Links</a>
                                 <a href="team.html" class="dropdown-item">Our Team</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonials</a>
-                                <a href="404.html" class="dropdown-item">404 Page</a>
+                                <a href="testimonials.html" class="dropdown-item">Testimonials</a>
                             </div>
                         </div>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
@@ -840,7 +844,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="carousel-img">
-                            <img class="w-100" src="img/carousel-1i.jpg" alt="Image">
+                            <img class="w-100" src="img/logo.jpg" alt="Image" style="max-width: 80%; margin: 0 auto;">
                         </div>
                     </div>
                 </div>
@@ -859,7 +863,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="carousel-img">
-                            <img class="w-100" src="img/carousel-2i.jpg" alt="Image">
+                            <img class="w-100" src="img/logo.jpg" alt="Image" style="max-width: 80%; margin: 0 auto;">
                         </div>
                     </div>
                 </div>
@@ -917,7 +921,7 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.2s">
                     <div class="about-img">
-                        <img class="img-fluid w-100" src="img/abouti.jpg" alt="Image">
+                        <img class="img-fluid w-100" src="img/logo1.jpg" alt="Image">
                     </div>
                 </div>
                 <div class="col-lg-6">
